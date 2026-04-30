@@ -217,19 +217,41 @@ export default function Hero() {
                 }}>
                     {[
                         { icon: '📍', text: 'Surat, Gujarat' },
-                        { icon: '✉️', text: 'akshitkachariya1508@gmail.com' },
+                        { icon: '✉️', text: 'akshitkachariya1508@gmail.com', href: 'mailto:akshitkachariya1508@gmail.com' },
                     ].map((item, i) => (
-                        <div key={i} style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '7px',
-                            color: 'var(--text-muted)',
-                            fontSize: '0.85rem',
-                            fontFamily: 'Plus Jakarta Sans',
-                        }}>
-                            <span>{item.icon}</span>
-                            <span>{item.text}</span>
-                        </div>
+                        item.href ? (
+                            <a 
+                                key={i} 
+                                href={item.href}
+                                style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '7px',
+                                    color: 'var(--text-muted)',
+                                    fontSize: '0.85rem',
+                                    fontFamily: 'Plus Jakarta Sans',
+                                    textDecoration: 'none',
+                                    transition: 'color 0.2s ease'
+                                }}
+                                onMouseEnter={e => e.currentTarget.style.color = '#fbbf24'}
+                                onMouseLeave={e => e.currentTarget.style.color = 'var(--text-muted)'}
+                            >
+                                <span>{item.icon}</span>
+                                <span>{item.text}</span>
+                            </a>
+                        ) : (
+                            <div key={i} style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '7px',
+                                color: 'var(--text-muted)',
+                                fontSize: '0.85rem',
+                                fontFamily: 'Plus Jakarta Sans',
+                            }}>
+                                <span>{item.icon}</span>
+                                <span>{item.text}</span>
+                            </div>
+                        )
                     ))}
                 </div>
             </div>

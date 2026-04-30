@@ -98,8 +98,8 @@ export default function About() {
                                 { label: 'Role', value: 'Full Stack Web Developer' },
                                 { label: 'Location', value: 'Surat, Gujarat' },
                                 { label: 'Education', value: 'BCA — VNSGU (Sutex Bank College of Computer Applications and Science)' },
-                                { label: 'Email', value: 'akshitkachariya1508@gmail.com' },
-                            ].map(({ label, value }) => (
+                                { label: 'Email', value: 'akshitkachariya1508@gmail.com', href: 'mailto:akshitkachariya1508@gmail.com' },
+                            ].map(({ label, value, href }) => (
                                 <div key={label} style={{
                                     display: 'grid',
                                     gridTemplateColumns: '90px 1fr',
@@ -109,7 +109,26 @@ export default function About() {
                                     borderBottom: '1px solid rgba(251,191,36,0.06)',
                                 }}>
                                     <span style={{ fontFamily: 'JetBrains Mono', fontSize: '0.75rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>{label}</span>
-                                    <span style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '0.85rem', color: 'var(--text-primary)', lineHeight: 1.6, wordBreak: 'break-word' }}>{value}</span>
+                                    {href ? (
+                                        <a 
+                                            href={href}
+                                            style={{ 
+                                                fontFamily: 'Plus Jakarta Sans', 
+                                                fontSize: '0.85rem', 
+                                                color: 'var(--text-primary)', 
+                                                lineHeight: 1.6, 
+                                                wordBreak: 'break-word',
+                                                textDecoration: 'none',
+                                                transition: 'color 0.2s ease'
+                                            }}
+                                            onMouseEnter={e => e.currentTarget.style.color = '#fbbf24'}
+                                            onMouseLeave={e => e.currentTarget.style.color = 'var(--text-primary)'}
+                                        >
+                                            {value}
+                                        </a>
+                                    ) : (
+                                        <span style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '0.85rem', color: 'var(--text-primary)', lineHeight: 1.6, wordBreak: 'break-word' }}>{value}</span>
+                                    )}
                                 </div>
                             ))}
                         </div>

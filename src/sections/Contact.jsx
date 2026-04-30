@@ -54,6 +54,16 @@ export default function Contact() {
         }
     }
 
+    const [emailCopied, setEmailCopied] = useState(false)
+
+    const handleEmailClick = (e, email) => {
+        if (window.innerWidth <= 768) return // On mobile, just let mailto work
+        e.preventDefault()
+        navigator.clipboard.writeText(email)
+        setEmailCopied(true)
+        setTimeout(() => setEmailCopied(false), 2000)
+    }
+
     const contactInfo = [
         {
             icon: (
@@ -65,6 +75,7 @@ export default function Contact() {
             label: 'Email',
             value: 'akshitkachariya1508@gmail.com',
             href: 'mailto:akshitkachariya1508@gmail.com',
+            isEmail: true
         },
         {
             icon: (
@@ -149,7 +160,7 @@ export default function Contact() {
                                 Contact Information
                             </h3>
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                                {contactInfo.map(({ icon, label, value, href }) => (
+                                {contactInfo.map(({ icon, label, value, href, isEmail }) => (
                                     <div key={label} style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
                                         <div style={{
                                             width: '36px',
@@ -165,21 +176,33 @@ export default function Contact() {
                                         }}>
                                             {icon}
                                         </div>
-                                        <div>
-                                            <p style={{ fontFamily: 'JetBrains Mono', fontSize: '0.7rem', color: 'var(--text-muted)', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '2px' }}>
-                                                {label}
-                                            </p>
+                                        <div style={{ position: 'relative' }}>
+                                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                                <p style={{ fontFamily: 'JetBrains Mono', fontSize: '0.7rem', color: 'var(--text-muted)', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '2px' }}>
+                                                    {label}
+                                                </p>
+                                                {isEmail && emailCopied && (
+                                                    <span style={{ fontSize: '0.65rem', color: '#fbbf24', fontFamily: 'JetBrains Mono' }}>
+                                                        [ COPIED! ]
+                                                    </span>
+                                                )}
+                                            </div>
                                             {href ? (
-                                                <a href={href} target={href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer" style={{
-                                                    fontFamily: 'Plus Jakarta Sans',
-                                                    fontSize: '0.85rem',
-                                                    color: 'var(--text-primary)',
-                                                    textDecoration: 'underline',
-                                                    textUnderlineOffset: '4px',
-                                                    textDecorationColor: 'rgba(251,191,36,0.3)',
-                                                    wordBreak: 'break-all',
-                                                    transition: 'all 0.2s',
-                                                }}
+                                                <a 
+                                                    href={href} 
+                                                    target={href.startsWith('http') ? '_blank' : undefined} 
+                                                    rel="noopener noreferrer" 
+                                                    onClick={isEmail ? (e) => handleEmailClick(e, value) : undefined}
+                                                    style={{
+                                                        fontFamily: 'Plus Jakarta Sans',
+                                                        fontSize: '0.85rem',
+                                                        color: 'var(--text-primary)',
+                                                        textDecoration: 'underline',
+                                                        textUnderlineOffset: '4px',
+                                                        textDecorationColor: 'rgba(251,191,36,0.3)',
+                                                        wordBreak: 'break-all',
+                                                        transition: 'all 0.2s',
+                                                    }}
                                                     onMouseEnter={e => {
                                                         e.currentTarget.style.color = '#fbbf24';
                                                         e.currentTarget.style.textDecorationColor = '#fbbf24';
