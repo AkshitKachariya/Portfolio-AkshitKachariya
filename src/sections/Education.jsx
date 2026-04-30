@@ -29,14 +29,13 @@ const educationData = [
 
 export default function Education() {
     const [openCard, setOpenCard] = useState(null)
-    const [isMobile, setIsMobile] = useState(false)
+    const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200)
     const ref = useRef()
 
     useEffect(() => {
-        const checkMobile = () => setIsMobile(window.innerWidth <= 1024)
-        checkMobile()
-        window.addEventListener('resize', checkMobile)
-        return () => window.removeEventListener('resize', checkMobile)
+        const handleResize = () => setWindowWidth(window.innerWidth)
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
     }, [])
 
     useEffect(() => {
@@ -47,6 +46,9 @@ export default function Education() {
         if (ref.current) observer.observe(ref.current)
         return () => observer.disconnect()
     }, [])
+
+    const isMobile = windowWidth <= 1024
+    const isTiny = windowWidth <= 492
 
     return (
         <section id="education" style={{ minHeight: isMobile ? 'auto' : '100vh', padding: isMobile ? '4rem 1.5rem' : '6rem 3rem' }}>
@@ -63,14 +65,14 @@ export default function Education() {
                     fontSize: 'clamp(2rem, 4vw, 3rem)',
                     fontWeight: 700,
                     letterSpacing: '-0.02em',
-                    marginBottom: isMobile ? '2rem' : '3rem',
+                    marginBottom: isMobile ? '2.5rem' : '3rem',
                     lineHeight: 1.2,
                 }}>
                     My <span className="gradient-text">Education</span>
                 </h2>
 
                 {/* Timeline */}
-                <div ref={ref} className="reveal" style={{ position: 'relative', paddingLeft: isMobile ? '1.5rem' : '2.5rem' }}>
+                <div ref={ref} className="reveal" style={{ position: 'relative', paddingLeft: isTiny ? '1.5rem' : '2.5rem' }}>
                     {/* Timeline vertical line */}
                     <div style={{
                         position: 'absolute',
@@ -89,7 +91,7 @@ export default function Education() {
                                     {/* Timeline dot */}
                                     <div style={{
                                         position: 'absolute',
-                                        left: isMobile ? '-1.5rem' : '-2.5rem',
+                                        left: isTiny ? '-1.5rem' : (isMobile ? '-1.5rem' : '-2.5rem'),
                                         top: '1.5rem',
                                         width: '11px',
                                         height: '11px',
@@ -99,7 +101,7 @@ export default function Education() {
                                         zIndex: 1
                                     }} />
 
-                                    <div className="glass-card card-hover" style={{ padding: isMobile ? '1.25rem' : '2rem' }}>
+                                    <div className="glass-card card-hover" style={{ padding: isTiny ? '1.25rem' : (isMobile ? '1.5rem' : '2rem') }}>
                                         {/* Header */}
                                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '12px', marginBottom: isMobile && !isOpen ? '0' : '1.25rem' }}>
                                             <div style={{ display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
@@ -131,19 +133,19 @@ export default function Education() {
                                                     </span>
                                                     <h3 style={{
                                                         fontFamily: 'Outfit',
-                                                        fontSize: isMobile ? '1rem' : '1.1rem',
+                                                        fontSize: isTiny ? '1.1rem' : (isMobile ? '1.15rem' : '1.2rem'),
                                                         fontWeight: 700,
                                                         color: 'var(--text-primary)',
-                                                        marginBottom: '3px',
+                                                        marginBottom: '4px',
                                                         lineHeight: 1.3,
                                                     }}>
                                                         {edu.degree}
                                                     </h3>
                                                     <p style={{
                                                         fontFamily: 'Plus Jakarta Sans',
-                                                        fontSize: '0.8rem',
+                                                        fontSize: '0.85rem',
                                                         color: edu.color,
-                                                        fontWeight: 500,
+                                                        fontWeight: 600,
                                                     }}>
                                                         {edu.institution}
                                                     </p>
@@ -157,19 +159,22 @@ export default function Education() {
                                                 alignItems: 'center',
                                                 textAlign: isMobile ? 'left' : 'right', 
                                                 flexShrink: 0, 
-                                                marginLeft: isMobile ? '54px' : '0',
-                                                marginTop: isMobile ? '8px' : '0',
-                                                width: isMobile ? 'calc(100% - 54px)' : 'auto'
+                                                marginLeft: isMobile ? (isTiny ? '0' : '54px') : '0',
+                                                marginTop: isMobile ? '12px' : '0',
+                                                width: isMobile ? (isTiny ? '100%' : 'calc(100% - 54px)') : 'auto',
+                                                gap: '12px'
                                             }}>
-                                                <div>
+                                                <div style={{ flexShrink: 0 }}>
                                                     <span style={{
                                                         fontFamily: 'JetBrains Mono',
-                                                        fontSize: '0.65rem',
+                                                        fontSize: '0.7rem',
                                                         color: 'var(--text-muted)',
                                                         background: 'rgba(255,255,255,0.04)',
                                                         border: '1px solid rgba(255,255,255,0.08)',
                                                         borderRadius: '4px',
-                                                        padding: '2px 8px',
+                                                        padding: '4px 10px',
+                                                        whiteSpace: 'nowrap',
+                                                        display: 'inline-block'
                                                     }}>
                                                         {edu.period}
                                                     </span>
@@ -178,11 +183,12 @@ export default function Education() {
                                                     background: `${edu.color}12`,
                                                     border: `1px solid ${edu.color}25`,
                                                     borderRadius: '6px',
-                                                    padding: '4px 12px',
+                                                    padding: '5px 12px',
                                                     marginTop: isMobile ? '0' : '5px',
                                                     display: 'inline-block',
+                                                    flexShrink: 0
                                                 }}>
-                                                    <span style={{ fontFamily: 'Outfit', fontSize: '0.8rem', fontWeight: 700, color: edu.color }}>
+                                                    <span style={{ fontFamily: 'Outfit', fontSize: '0.85rem', fontWeight: 700, color: edu.color }}>
                                                         {edu.grade}
                                                     </span>
                                                 </div>
@@ -199,14 +205,14 @@ export default function Education() {
                                                     alignItems: 'center',
                                                     justifyContent: 'center',
                                                     gap: '8px',
-                                                    marginTop: '1rem',
-                                                    padding: '8px',
+                                                    marginTop: '1.25rem',
+                                                    padding: '10px',
                                                     background: 'rgba(255,255,255,0.03)',
                                                     border: '1px solid rgba(255,255,255,0.1)',
-                                                    borderRadius: '8px',
+                                                    borderRadius: '10px',
                                                     color: 'var(--text-muted)',
                                                     fontFamily: 'Plus Jakarta Sans',
-                                                    fontSize: '0.75rem',
+                                                    fontSize: '0.8rem',
                                                     fontWeight: 600,
                                                     cursor: 'pointer',
                                                     transition: 'all 0.3s ease'
@@ -214,7 +220,7 @@ export default function Education() {
                                             >
                                                 {isOpen ? 'Show Less' : 'View Details'}
                                                 <svg 
-                                                    width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
+                                                    width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
                                                     style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s ease' }}
                                                 >
                                                     <polyline points="6 9 12 15 18 9" />
@@ -224,25 +230,26 @@ export default function Education() {
 
                                         {/* Expandable Content */}
                                         <div style={{
-                                            maxHeight: isMobile ? (isOpen ? '500px' : '0px') : 'none',
+                                            maxHeight: isMobile ? (isOpen ? '600px' : '0px') : 'none',
                                             opacity: isMobile ? (isOpen ? 1 : 0) : 1,
                                             overflow: 'hidden',
-                                            transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                                            marginTop: isMobile && isOpen ? '1rem' : '0'
+                                            transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                                            marginTop: isMobile && isOpen ? '1.5rem' : '0'
                                         }}>
-                                            {!isMobile && <div style={{ height: '1px', background: 'rgba(255,255,255,0.05)', marginBottom: '1.25rem' }} />}
+                                            {!isMobile && <div style={{ height: '1px', background: 'rgba(255,255,255,0.05)', marginBottom: '1.5rem' }} />}
                                             
                                             <p style={{
                                                 fontFamily: 'Plus Jakarta Sans',
-                                                fontSize: '0.85rem',
-                                                lineHeight: 1.7,
+                                                fontSize: '0.875rem',
+                                                lineHeight: 1.8,
                                                 color: 'var(--text-secondary)',
-                                                marginBottom: '1rem',
+                                                marginBottom: '1.5rem',
+                                                textAlign: 'justify',
                                             }}>
                                                 {edu.desc}
                                             </p>
 
-                                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                                                 {edu.skills.map(s => (
                                                     <span key={s} style={{
                                                         fontFamily: 'JetBrains Mono',
@@ -250,8 +257,9 @@ export default function Education() {
                                                         color: edu.color,
                                                         background: `${edu.color}10`,
                                                         border: `1px solid ${edu.color}25`,
-                                                        borderRadius: '4px',
-                                                        padding: '3px 8px',
+                                                        borderRadius: '5px',
+                                                        padding: '4px 10px',
+                                                        fontWeight: 500
                                                     }}>
                                                         {s}
                                                     </span>

@@ -243,7 +243,7 @@ export default function Projects() {
                                     <span style={{ fontFamily: 'JetBrains Mono', color: '#fbbf24', fontSize: '0.8rem', fontWeight: 800 }}>01</span>
                                     <h5 style={{ fontFamily: 'Outfit', color: '#fff', fontSize: '0.9rem', fontWeight: 700, letterSpacing: '0.05em' }}>OVERVIEW</h5>
                                 </div>
-                                <p style={{ fontFamily: 'Plus Jakarta Sans', color: 'rgba(255,255,255,0.7)', fontSize: '0.85rem', lineHeight: 1.7, paddingLeft: '24px' }}>
+                                <p style={{ fontFamily: 'Plus Jakarta Sans', color: 'rgba(255,255,255,0.7)', fontSize: '0.85rem', lineHeight: 1.7, paddingLeft: '24px', textAlign: 'justify' }}>
                                     Asopalav - The Cloth Store is a dummy E-commerce website developed for men’s and women’s fashion shopping. The platform allows users to browse clothing categories, view product details, manage carts, and place orders through a responsive and user-friendly interface.
                                 </p>
                             </div>
@@ -254,7 +254,7 @@ export default function Projects() {
                                     <span style={{ fontFamily: 'JetBrains Mono', color: '#fbbf24', fontSize: '0.8rem', fontWeight: 800 }}>02</span>
                                     <h5 style={{ fontFamily: 'Outfit', color: '#fff', fontSize: '0.9rem', fontWeight: 700, letterSpacing: '0.05em' }}>CHALLENGE</h5>
                                 </div>
-                                <p style={{ fontFamily: 'Plus Jakarta Sans', color: 'rgba(255,255,255,0.7)', fontSize: '0.85rem', lineHeight: 1.7, paddingLeft: '24px' }}>
+                                <p style={{ fontFamily: 'Plus Jakarta Sans', color: 'rgba(255,255,255,0.7)', fontSize: '0.85rem', lineHeight: 1.7, paddingLeft: '24px', textAlign: 'justify' }}>
                                     The main challenge was building a complete eCommerce system with both Admin Panel and User Panel while maintaining responsive design, smooth navigation, secure authentication, and proper product/order management.
                                 </p>
                             </div>
@@ -265,7 +265,7 @@ export default function Projects() {
                                     <span style={{ fontFamily: 'JetBrains Mono', color: '#fbbf24', fontSize: '0.8rem', fontWeight: 800 }}>03</span>
                                     <h5 style={{ fontFamily: 'Outfit', color: '#fff', fontSize: '0.9rem', fontWeight: 700, letterSpacing: '0.05em' }}>SOLUTION</h5>
                                 </div>
-                                <p style={{ fontFamily: 'Plus Jakarta Sans', color: 'rgba(255,255,255,0.7)', fontSize: '0.85rem', lineHeight: 1.7, paddingLeft: '24px', marginBottom: '1rem' }}>
+                                <p style={{ fontFamily: 'Plus Jakarta Sans', color: 'rgba(255,255,255,0.7)', fontSize: '0.85rem', lineHeight: 1.7, paddingLeft: '24px', marginBottom: '1rem', textAlign: 'justify' }}>
                                     The project was developed using HTML, CSS, Tailwind CSS, JavaScript, Core PHP, and MySQL. The system includes an Admin Panel for managing products, categories, users, orders, store locations, and branding.
                                 </p>
 

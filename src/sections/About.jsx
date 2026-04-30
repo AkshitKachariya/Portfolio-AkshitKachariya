@@ -53,6 +53,7 @@ export default function About() {
                             lineHeight: 1.9,
                             color: 'var(--text-secondary)',
                             marginBottom: '1.4rem',
+                            textAlign: 'justify',
                         }}>
                             I'm an aspiring <span style={{ color: '#fbbf24', fontWeight: 600 }}>Full Stack Web Developer</span> with a strong interest in building modern, responsive, and user-friendly web applications. I have hands-on experience with frontend technologies like HTML, CSS, Bootstrap, Tailwind CSS, JavaScript, and ReactJS, along with basic backend knowledge of PHP, NodeJS, and ExpressJS.
                         </p>
@@ -62,6 +63,7 @@ export default function About() {
                             lineHeight: 1.9,
                             color: 'var(--text-secondary)',
                             marginBottom: '1.4rem',
+                            textAlign: 'justify',
                         }}>
                             I'm also familiar with databases such as <span style={{ color: '#fbbf24', fontWeight: 600 }}>MySQL and MongoDB</span>, and tools like GitHub, Postman, and Figma. I enjoy learning new technologies, improving my problem-solving skills, and turning ideas into practical digital solutions.
                         </p>
@@ -70,6 +72,7 @@ export default function About() {
                             fontSize: '1rem',
                             lineHeight: 1.9,
                             color: 'var(--text-secondary)',
+                            textAlign: 'justify',
                         }}>
                             As a developer, I'm continuously growing my skills and exploring better ways to create <span style={{ color: '#fbbf24', fontWeight: 600 }}>clean, efficient, and visually appealing</span> web experiences.
                         </p>

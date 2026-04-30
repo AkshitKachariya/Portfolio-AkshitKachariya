@@ -75,7 +75,8 @@ function SkillCard({ skill, color, visible }) {
                         width: '32px', 
                         height: '32px', 
                         objectFit: 'contain',
-                        filter: skill.name === 'GitHub' ? 'invert(1) brightness(2)' : 'none'
+                        filter: skill.name === 'GitHub' ? 'invert(1) brightness(2)' : 
+                                skill.name === 'Express.js' ? 'invert(78%) sepia(40%) saturate(1000%) hue-rotate(350deg) brightness(105%) contrast(105%)' : 'none'
                     }}
                     onError={e => { e.target.style.display = 'none' }}
                 />
