@@ -217,12 +217,14 @@ export default function Hero() {
                 }}>
                     {[
                         { icon: '📍', text: 'Surat, Gujarat' },
-                        { icon: '✉️', text: 'akshitkachariya1508@gmail.com', href: 'mailto:akshitkachariya1508@gmail.com' },
+                        { icon: '✉️', text: 'akshitkachariya1508@gmail.com', href: 'https://mail.google.com/mail/?view=cm&fs=1&to=akshitkachariya1508@gmail.com' },
                     ].map((item, i) => (
                         item.href ? (
                             <a 
                                 key={i} 
                                 href={item.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 style={{
                                     display: 'flex',
                                     alignItems: 'center',

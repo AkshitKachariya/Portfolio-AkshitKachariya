@@ -138,7 +138,7 @@ export default function Skills() {
 
     return (
         <section id="skills" style={{ minHeight: '100vh', padding: '6rem 3rem' }} ref={ref}>
-            <div style={{ maxWidth: '900px' }}>
+            <div style={{ maxWidth: '100%', width: '100%' }}>
                 {/* Section label */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '1rem' }}>
                     <span style={{ fontFamily: 'JetBrains Mono', fontSize: '0.75rem', color: '#fbbf24', letterSpacing: '0.12em', textTransform: 'uppercase' }}>

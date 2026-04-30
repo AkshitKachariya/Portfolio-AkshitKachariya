@@ -274,7 +274,7 @@ export default function Sidebar({ activeSection }) {
                             ),
                         },
                         {
-                            href: 'mailto:akshitkachariya1508@gmail.com',
+                            href: 'https://mail.google.com/mail/?view=cm&fs=1&to=akshitkachariya1508@gmail.com',
                             title: 'Email',
                             icon: (
                                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

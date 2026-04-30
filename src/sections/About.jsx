@@ -23,7 +23,7 @@ export default function About() {
                 position: 'relative',
             }}
         >
-            <div style={{ maxWidth: '900px', width: '100%' }} className="stagger-children" ref={ref}>
+            <div style={{ maxWidth: '100%', width: '100%' }} className="stagger-children" ref={ref}>
                 {/* Section label */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '1rem' }}>
                     <span style={{ fontFamily: 'JetBrains Mono', fontSize: '0.75rem', color: '#fbbf24', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
@@ -98,7 +98,7 @@ export default function About() {
                                 { label: 'Role', value: 'Full Stack Web Developer' },
                                 { label: 'Location', value: 'Surat, Gujarat' },
                                 { label: 'Education', value: 'BCA — VNSGU (Sutex Bank College of Computer Applications and Science)' },
-                                { label: 'Email', value: 'akshitkachariya1508@gmail.com', href: 'mailto:akshitkachariya1508@gmail.com' },
+                                { label: 'Email', value: 'akshitkachariya1508@gmail.com', href: 'https://mail.google.com/mail/?view=cm&fs=1&to=akshitkachariya1508@gmail.com' },
                             ].map(({ label, value, href }) => (
                                 <div key={label} style={{
                                     display: 'grid',
@@ -112,6 +112,8 @@ export default function About() {
                                     {href ? (
                                         <a 
                                             href={href}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
                                             style={{ 
                                                 fontFamily: 'Plus Jakarta Sans', 
                                                 fontSize: '0.85rem', 

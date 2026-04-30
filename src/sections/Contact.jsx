@@ -54,15 +54,6 @@ export default function Contact() {
         }
     }
 
-    const [emailCopied, setEmailCopied] = useState(false)
-
-    const handleEmailClick = (e, email) => {
-        if (window.innerWidth <= 768) return // On mobile, just let mailto work
-        e.preventDefault()
-        navigator.clipboard.writeText(email)
-        setEmailCopied(true)
-        setTimeout(() => setEmailCopied(false), 2000)
-    }
 
     const contactInfo = [
         {
@@ -74,7 +65,7 @@ export default function Contact() {
             ),
             label: 'Email',
             value: 'akshitkachariya1508@gmail.com',
-            href: 'mailto:akshitkachariya1508@gmail.com',
+            href: 'https://mail.google.com/mail/?view=cm&fs=1&to=akshitkachariya1508@gmail.com',
             isEmail: true
         },
         {
@@ -112,7 +103,7 @@ export default function Contact() {
 
     return (
         <section id="contact" style={{ minHeight: '100vh', padding: isMobile ? '4rem 1.5rem' : '6rem 3rem' }}>
-            <div style={{ maxWidth: '900px' }}>
+            <div style={{ maxWidth: '100%', width: '100%' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '1rem' }}>
                     <span style={{ fontFamily: 'JetBrains Mono', fontSize: '0.75rem', color: '#fbbf24', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
                         06. Contact
@@ -181,18 +172,13 @@ export default function Contact() {
                                                 <p style={{ fontFamily: 'JetBrains Mono', fontSize: '0.7rem', color: 'var(--text-muted)', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '2px' }}>
                                                     {label}
                                                 </p>
-                                                {isEmail && emailCopied && (
-                                                    <span style={{ fontSize: '0.65rem', color: '#fbbf24', fontFamily: 'JetBrains Mono' }}>
-                                                        [ COPIED! ]
-                                                    </span>
-                                                )}
+
                                             </div>
                                             {href ? (
                                                 <a 
                                                     href={href} 
                                                     target={href.startsWith('http') ? '_blank' : undefined} 
                                                     rel="noopener noreferrer" 
-                                                    onClick={isEmail ? (e) => handleEmailClick(e, value) : undefined}
                                                     style={{
                                                         fontFamily: 'Plus Jakarta Sans',
                                                         fontSize: '0.85rem',

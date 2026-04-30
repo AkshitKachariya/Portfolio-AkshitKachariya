@@ -30,12 +30,11 @@ export default function Projects() {
     return (
         <section id="projects" style={{ 
             minHeight: '100vh', 
-            padding: isMobile ? '4rem 1.5rem' : '4rem 2rem',
+            padding: isMobile ? '4rem 1.5rem' : '4rem 3rem',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center'
         }}>
-            <div style={{ maxWidth: '1100px', width: '100%', margin: '0 auto' }}>
+            <div style={{ maxWidth: '100%', width: '100%' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '0.5rem' }}>
                     <span style={{ fontFamily: 'JetBrains Mono', fontSize: '0.75rem', color: '#fbbf24', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
                         04. Projects
@@ -121,6 +120,7 @@ export default function Projects() {
                                         letterSpacing: '-0.03em',
                                         lineHeight: 1
                                     }}>
+                                        <span style={{ color: '#fbbf24', fontSize: '0.5em', marginRight: '12px', verticalAlign: 'middle', fontFamily: 'JetBrains Mono', opacity: 0.9 }}>01.</span>
                                         Asopalav
                                     </h3>
                                     <p style={{

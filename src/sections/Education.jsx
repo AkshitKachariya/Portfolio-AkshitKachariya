@@ -51,8 +51,8 @@ export default function Education() {
     const isTiny = windowWidth <= 492
 
     return (
-        <section id="education" style={{ minHeight: isMobile ? 'auto' : '100vh', padding: isMobile ? '4rem 1.5rem' : '6rem 3rem' }}>
-            <div style={{ maxWidth: '900px' }}>
+        <section id="education" style={{ minHeight: '100vh', padding: isMobile ? '4rem 1.5rem' : '6rem 3rem', display: 'flex', alignItems: 'center' }}>
+            <div style={{ maxWidth: '100%', width: '100%' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '1rem' }}>
                     <span style={{ fontFamily: 'JetBrains Mono', fontSize: '0.75rem', color: '#fbbf24', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
                         05. Education
