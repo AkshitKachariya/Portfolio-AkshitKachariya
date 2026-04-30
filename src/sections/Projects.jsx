@@ -81,7 +81,7 @@ export default function Projects() {
                         background: '#171717'
                     }}>
                         <img
-                            src={import.meta.env.BASE_URL + "asopalav-cover-image.png"}
+                            src="asopalav-cover-image.png"
                             alt="Asopalav"
                             style={{
                                 width: '100%',
