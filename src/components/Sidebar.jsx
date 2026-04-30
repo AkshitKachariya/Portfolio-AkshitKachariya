@@ -13,6 +13,9 @@ const navItems = [
 export default function Sidebar({ activeSection }) {
     const [mobileOpen, setMobileOpen] = useState(false)
     const [isMobile, setIsMobile] = useState(false)
+    const isMobileDevice = typeof window !== 'undefined' && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+    const emailHref = isMobileDevice ? 'mailto:akshitkachariya1508@gmail.com' : 'https://mail.google.com/mail/?view=cm&fs=1&to=akshitkachariya1508@gmail.com'
+
 
     // Detect mobile
     useEffect(() => {
@@ -274,7 +277,7 @@ export default function Sidebar({ activeSection }) {
                             ),
                         },
                         {
-                            href: 'https://mail.google.com/mail/?view=cm&fs=1&to=akshitkachariya1508@gmail.com',
+                            href: emailHref,
                             title: 'Email',
                             icon: (
                                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

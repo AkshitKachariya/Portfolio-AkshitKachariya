@@ -2,6 +2,9 @@ import { useEffect, useRef } from 'react'
 
 export default function About() {
     const ref = useRef()
+    const isMobileDevice = typeof window !== 'undefined' && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+    const emailHref = isMobileDevice ? 'mailto:akshitkachariya1508@gmail.com' : 'https://mail.google.com/mail/?view=cm&fs=1&to=akshitkachariya1508@gmail.com'
+
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -98,7 +101,7 @@ export default function About() {
                                 { label: 'Role', value: 'Full Stack Web Developer' },
                                 { label: 'Location', value: 'Surat, Gujarat' },
                                 { label: 'Education', value: 'BCA — VNSGU (Sutex Bank College of Computer Applications and Science)' },
-                                { label: 'Email', value: 'akshitkachariya1508@gmail.com', href: 'https://mail.google.com/mail/?view=cm&fs=1&to=akshitkachariya1508@gmail.com' },
+                                { label: 'Email', value: 'akshitkachariya1508@gmail.com', href: emailHref },
                             ].map(({ label, value, href }) => (
                                 <div key={label} style={{
                                     display: 'grid',
@@ -112,7 +115,7 @@ export default function About() {
                                     {href ? (
                                         <a 
                                             href={href}
-                                            target="_blank"
+                                            target={href.startsWith('http') ? '_blank' : undefined}
                                             rel="noopener noreferrer"
                                             style={{ 
                                                 fontFamily: 'Plus Jakarta Sans', 

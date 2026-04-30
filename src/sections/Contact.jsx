@@ -4,6 +4,9 @@ export default function Contact() {
     const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
     const [status, setStatus] = useState(null) // 'sending' | 'success' | 'error'
     const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200)
+    const isMobileDevice = typeof window !== 'undefined' && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+    const emailHref = isMobileDevice ? 'mailto:akshitkachariya1508@gmail.com' : 'https://mail.google.com/mail/?view=cm&fs=1&to=akshitkachariya1508@gmail.com'
+
     const ref = useRef()
 
     useEffect(() => {
@@ -65,7 +68,7 @@ export default function Contact() {
             ),
             label: 'Email',
             value: 'akshitkachariya1508@gmail.com',
-            href: 'https://mail.google.com/mail/?view=cm&fs=1&to=akshitkachariya1508@gmail.com',
+            href: emailHref,
             isEmail: true
         },
         {

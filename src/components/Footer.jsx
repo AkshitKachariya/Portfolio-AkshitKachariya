@@ -1,5 +1,8 @@
 export default function Footer() {
     const year = new Date().getFullYear()
+    const isMobile = typeof window !== 'undefined' && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+    const emailHref = isMobile ? 'mailto:akshitkachariya1508@gmail.com' : 'https://mail.google.com/mail/?view=cm&fs=1&to=akshitkachariya1508@gmail.com'
+
 
     const scrollTo = (id) => {
         document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
@@ -36,7 +39,7 @@ export default function Footer() {
         },
         {
             label: 'Email',
-            href: 'https://mail.google.com/mail/?view=cm&fs=1&to=akshitkachariya1508@gmail.com',
+            href: emailHref,
             icon: (
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />

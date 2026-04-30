@@ -7,6 +7,9 @@ export default function Hero() {
     const [displayText, setDisplayText] = useState('')
     const [isDeleting, setIsDeleting] = useState(false)
     const [charIndex, setCharIndex] = useState(0)
+    const isMobileDevice = typeof window !== 'undefined' && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+    const emailHref = isMobileDevice ? 'mailto:akshitkachariya1508@gmail.com' : 'https://mail.google.com/mail/?view=cm&fs=1&to=akshitkachariya1508@gmail.com'
+
 
     // Typing effect
     useEffect(() => {
@@ -217,13 +220,13 @@ export default function Hero() {
                 }}>
                     {[
                         { icon: '📍', text: 'Surat, Gujarat' },
-                        { icon: '✉️', text: 'akshitkachariya1508@gmail.com', href: 'https://mail.google.com/mail/?view=cm&fs=1&to=akshitkachariya1508@gmail.com' },
+                        { icon: '✉️', text: 'akshitkachariya1508@gmail.com', href: emailHref },
                     ].map((item, i) => (
                         item.href ? (
                             <a 
                                 key={i} 
                                 href={item.href}
-                                target="_blank"
+                                target={item.href.startsWith('http') ? '_blank' : undefined}
                                 rel="noopener noreferrer"
                                 style={{
                                     display: 'flex',
