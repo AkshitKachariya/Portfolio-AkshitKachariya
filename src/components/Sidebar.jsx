@@ -129,7 +129,7 @@ export default function Sidebar({ activeSection }) {
             )}
 
             {/* Sidebar */}
-            <aside style={sidebarStyle}>
+            <aside className={!isMobile ? "animate-slide-left" : ""} style={sidebarStyle}>
                 {/* Logo */}
                 <div style={{ padding: isMobile ? '4.5rem 1.75rem 1.5rem' : '2rem 1.75rem 1.5rem', borderBottom: '1px solid rgba(251,191,36,0.08)' }}>
                     <div

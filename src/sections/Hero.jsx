@@ -85,11 +85,9 @@ export default function Hero() {
             }} />
 
             {/* Content */}
-            <div style={{ maxWidth: '780px', zIndex: 1, animation: 'fadeInUp 0.8s ease forwards' }}>
-
-
-                {/* Main heading */}
-                <div style={{ marginBottom: '0.5rem', animation: 'fadeInUp 0.6s ease 0.2s both' }}>
+            <div style={{ maxWidth: '780px', zIndex: 1 }}>
+                {/* Greeting */}
+                <div className="animate-slide-up" style={{ marginBottom: '0.5rem', animationDelay: '100ms' }}>
                     <p style={{
                         fontFamily: 'Outfit, sans-serif',
                         fontSize: 'clamp(1rem, 2vw, 1.1rem)',
@@ -100,6 +98,10 @@ export default function Hero() {
                     }}>
                         Hello, World! I'm
                     </p>
+                </div>
+
+                {/* Main Name Heading */}
+                <div className="animate-slide-up" style={{ marginBottom: '0.5rem', animationDelay: '250ms' }}>
                     <h1 style={{
                         fontFamily: 'Outfit, sans-serif',
                         fontSize: 'clamp(3rem, 7vw, 5.5rem)',
@@ -125,13 +127,13 @@ export default function Hero() {
                 </div>
 
                 {/* Typing role */}
-                <div style={{
+                <div className="animate-slide-up" style={{
                     display: 'flex',
                     alignItems: 'center',
                     gap: '8px',
                     marginBottom: '2rem',
                     minHeight: '36px',
-                    animation: 'fadeInUp 0.6s ease 0.35s both',
+                    animationDelay: '400ms'
                 }}>
                     <span style={{ color: 'rgba(251,191,36,0.5)', fontFamily: 'JetBrains Mono', fontSize: '1.1rem' }}>&gt;</span>
                     <span style={{
@@ -152,25 +154,26 @@ export default function Hero() {
                 </div>
 
                 {/* Tagline */}
-                <p style={{
-                    fontFamily: 'Plus Jakarta Sans, sans-serif',
-                    fontSize: 'clamp(1rem, 1.8vw, 1.15rem)',
-                    color: 'var(--text-secondary)',
-                    lineHeight: 1.7,
-                    maxWidth: '560px',
-                    marginBottom: '3rem',
-                    animation: 'fadeInUp 0.6s ease 0.45s both',
-                }}>
-                    Crafting modern, performant web experiences with clean code and thoughtful design — turning ideas into digital reality.
-                </p>
+                <div className="animate-slide-up" style={{ animationDelay: '550ms' }}>
+                    <p style={{
+                        fontFamily: 'Plus Jakarta Sans, sans-serif',
+                        fontSize: 'clamp(1rem, 1.8vw, 1.15rem)',
+                        color: 'var(--text-secondary)',
+                        lineHeight: 1.7,
+                        maxWidth: '560px',
+                        marginBottom: '3rem',
+                    }}>
+                        Crafting modern, performant web experiences with clean code and thoughtful design — turning ideas into digital reality.
+                    </p>
+                </div>
 
                 {/* CTA Buttons */}
-                <div className="responsive-hero-buttons" style={{
+                <div className="responsive-hero-buttons animate-slide-up" style={{
                     display: 'flex',
                     gap: '16px',
                     flexWrap: 'wrap',
                     marginBottom: '3.5rem',
-                    animation: 'fadeInUp 0.6s ease 0.55s both',
+                    animationDelay: '700ms'
                 }}>
                     <button
                         className="btn-primary"
@@ -206,11 +209,11 @@ export default function Hero() {
                 </div>
 
                 {/* Info chips */}
-                <div style={{
+                <div className="animate-slide-up" style={{
                     display: 'flex',
                     gap: '20px',
                     flexWrap: 'wrap',
-                    animation: 'fadeInUp 0.6s ease 0.65s both',
+                    animationDelay: '850ms'
                 }}>
                     {[
                         { icon: '📍', text: 'Surat, Gujarat' },

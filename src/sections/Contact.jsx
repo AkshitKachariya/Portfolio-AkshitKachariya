@@ -3,7 +3,14 @@ import { useState, useRef, useEffect } from 'react'
 export default function Contact() {
     const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
     const [status, setStatus] = useState(null) // 'sending' | 'success' | 'error'
+    const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1200)
     const ref = useRef()
+
+    useEffect(() => {
+        const handleResize = () => setWindowWidth(window.innerWidth)
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
+    }, [])
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -13,6 +20,9 @@ export default function Contact() {
         if (ref.current) observer.observe(ref.current)
         return () => observer.disconnect()
     }, [])
+
+    const isMobile = windowWidth <= 768
+    const isTabletOrSmallDesktop = windowWidth <= 1280
 
     const handleChange = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }))
 
@@ -90,7 +100,7 @@ export default function Contact() {
     ]
 
     return (
-        <section id="contact" style={{ minHeight: '100vh', padding: '6rem 3rem' }}>
+        <section id="contact" style={{ minHeight: '100vh', padding: isMobile ? '4rem 1.5rem' : '6rem 3rem' }}>
             <div style={{ maxWidth: '900px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '1rem' }}>
                     <span style={{ fontFamily: 'JetBrains Mono', fontSize: '0.75rem', color: '#fbbf24', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
@@ -113,17 +123,22 @@ export default function Contact() {
                     fontFamily: 'Plus Jakarta Sans',
                     color: 'var(--text-secondary)',
                     fontSize: '1rem',
-                    marginBottom: '3rem',
+                    marginBottom: isTabletOrSmallDesktop ? '2rem' : '3rem',
                     maxWidth: '480px',
                     lineHeight: 1.7,
                 }}>
                     Whether you have an opportunity, a project idea, or just want to say hello — my inbox is always open.
                 </p>
 
-                <div ref={ref} className="reveal responsive-contact-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: '2.5rem', alignItems: 'start' }}>
+                <div ref={ref} className="reveal responsive-contact-grid" style={{
+                    display: 'grid',
+                    gridTemplateColumns: isTabletOrSmallDesktop ? '1fr' : '1fr 1.5fr',
+                    gap: isMobile ? '1.5rem' : '2.5rem',
+                    alignItems: 'start'
+                }}>
                     {/* Contact info */}
                     <div>
-                        <div className="glass-card" style={{ padding: '1.75rem', marginBottom: '1.5rem' }}>
+                        <div className="glass-card" style={{ padding: isMobile ? '1.5rem' : '1.75rem', marginBottom: isMobile ? '0' : '1.5rem' }}>
                             <h3 style={{
                                 fontFamily: 'Outfit',
                                 fontSize: '1rem',
@@ -159,12 +174,20 @@ export default function Contact() {
                                                     fontFamily: 'Plus Jakarta Sans',
                                                     fontSize: '0.85rem',
                                                     color: 'var(--text-primary)',
-                                                    textDecoration: 'none',
+                                                    textDecoration: 'underline',
+                                                    textUnderlineOffset: '4px',
+                                                    textDecorationColor: 'rgba(251,191,36,0.3)',
                                                     wordBreak: 'break-all',
-                                                    transition: 'color 0.2s',
+                                                    transition: 'all 0.2s',
                                                 }}
-                                                    onMouseEnter={e => e.currentTarget.style.color = '#fbbf24'}
-                                                    onMouseLeave={e => e.currentTarget.style.color = 'var(--text-primary)'}
+                                                    onMouseEnter={e => {
+                                                        e.currentTarget.style.color = '#fbbf24';
+                                                        e.currentTarget.style.textDecorationColor = '#fbbf24';
+                                                    }}
+                                                    onMouseLeave={e => {
+                                                        e.currentTarget.style.color = 'var(--text-primary)';
+                                                        e.currentTarget.style.textDecorationColor = 'rgba(251,191,36,0.3)';
+                                                    }}
                                                 >
                                                     {value}
                                                 </a>
@@ -176,12 +199,10 @@ export default function Contact() {
                                 ))}
                             </div>
                         </div>
-
-
                     </div>
 
                     {/* Contact form */}
-                    <div className="glass-card" style={{ padding: '2rem' }}>
+                    <div className="glass-card" style={{ padding: isMobile ? '1.5rem' : '2rem' }}>
                         <h3 style={{
                             fontFamily: 'Outfit',
                             fontSize: '1rem',
@@ -214,7 +235,11 @@ export default function Contact() {
                             </div>
                         ) : (
                             <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                                <div className="responsive-form-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+                                <div className="responsive-form-grid" style={{
+                                    display: 'grid',
+                                    gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr',
+                                    gap: '14px'
+                                }}>
                                     <div>
                                         <label style={{ fontFamily: 'Plus Jakarta Sans', fontSize: '0.8rem', color: 'var(--text-muted)', display: 'block', marginBottom: '6px' }}>
                                             Full Name <span style={{ color: '#fbbf24' }}>*</span>
@@ -274,7 +299,7 @@ export default function Contact() {
                                         required
                                         rows={5}
                                         id="contact-message"
-                                        style={{ resize: 'vertical', minHeight: '120px' }}
+                                        style={{ resize: 'vertical', minHeight: '120px', resize: 'none' }}
                                     />
                                 </div>
 

@@ -18,7 +18,7 @@ export default function Experience() {
     ]
 
     return (
-        <section id="experience" style={{ minHeight: '100vh', padding: '6rem 3rem' }}>
+        <section id="experience" style={{ minHeight: 'auto', padding: '4rem 3rem' }}>
             <div style={{ maxWidth: '900px' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '1rem' }}>
                     <span style={{ fontFamily: 'JetBrains Mono', fontSize: '0.75rem', color: '#fbbf24', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
@@ -32,7 +32,7 @@ export default function Experience() {
                     fontSize: 'clamp(2rem, 4vw, 3rem)',
                     fontWeight: 700,
                     letterSpacing: '-0.02em',
-                    marginBottom: '3rem',
+                    marginBottom: '2rem',
                     lineHeight: 1.2,
                 }}>
                     Work <span className="gradient-text">Experience</span>
@@ -62,7 +62,7 @@ export default function Experience() {
                         boxShadow: '0 0 0 4px rgba(251,191,36,0.15), 0 0 16px rgba(251,191,36,0.4)',
                     }} />
 
-                    <div className="glass-card card-hover" style={{ padding: '2rem' }}>
+                    <div className="glass-card card-hover" style={{ padding: '1.5rem' }}>
                         {/* Header */}
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '12px', marginBottom: '1.25rem' }}>
                             <div>
@@ -126,25 +126,25 @@ export default function Experience() {
                         </div>
 
                         {/* Divider */}
-                        <div style={{ height: '1px', background: 'rgba(251,191,36,0.08)', marginBottom: '1.25rem' }} />
+                        <div style={{ height: '1px', background: 'rgba(251,191,36,0.08)', marginBottom: '1rem' }} />
 
                         {/* Description */}
                         <p style={{
                             fontFamily: 'Plus Jakarta Sans',
-                            fontSize: '0.95rem',
-                            lineHeight: 1.8,
+                            fontSize: '0.9rem',
+                            lineHeight: 1.6,
                             color: 'var(--text-secondary)',
-                            marginBottom: '1.5rem',
+                            marginBottom: '1rem',
                         }}>
                             During my internship at <span style={{ color: '#fbbf24', fontWeight: 600 }}>La Minds IT Company</span>, I worked on real-world full-stack web development projects using HTML, CSS, JavaScript, Tailwind CSS, React, Node.js, Express.js, and MongoDB. I also used tools like <span style={{ color: '#fbbf24', fontWeight: 600 }}>Figma and Postman</span> for UI design and API testing, which helped me improve my technical, problem-solving, and teamwork skills.
                         </p>
 
                         {/* Key highlights */}
-                        <div style={{ marginBottom: '1.5rem' }}>
-                            <h4 style={{ fontFamily: 'Outfit', fontSize: '0.85rem', fontWeight: 600, color: 'var(--text-muted)', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '10px' }}>
+                        <div style={{ marginBottom: '1rem' }}>
+                            <h4 style={{ fontFamily: 'Outfit', fontSize: '0.8rem', fontWeight: 600, color: 'var(--text-muted)', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '8px' }}>
                                 Key Highlights
                             </h4>
-                            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '6px' }}>
                                 {[
                                     'Built real-world full-stack web applications from scratch',
                                     'Designed responsive UIs using Tailwind CSS and React',
@@ -152,7 +152,7 @@ export default function Experience() {
                                     'Managed MongoDB databases and integrated with backend',
                                     'Conducted UI design in Figma and API testing with Postman',
                                 ].map((item, i) => (
-                                    <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontFamily: 'Plus Jakarta Sans', fontSize: '0.88rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+                                    <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', fontFamily: 'Plus Jakarta Sans', fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
                                         <span style={{ color: '#fbbf24', marginTop: '3px', flexShrink: 0 }}>▸</span>
                                         {item}
                                     </li>
