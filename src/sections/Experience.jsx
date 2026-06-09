@@ -29,13 +29,8 @@ export default function Experience() {
     ]
 
     return (
-<<<<<<< HEAD
-        <section id="experience" style={{ minHeight: '100vh', padding: isMobile ? '4rem 1.5rem' : '4rem 3rem', display: 'flex', alignItems: 'center' }}>
-            <div style={{ maxWidth: '100%', width: '100%' }}>
-=======
         <section id="experience" style={{ minHeight: 'auto', padding: isMobile ? '4rem 1.5rem' : '4rem 3rem' }}>
             <div style={{ maxWidth: '1100px', width: '100%' }}>
->>>>>>> 783797f (Update portfolio content and project details)
                 <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '1rem' }}>
                     <span style={{ fontFamily: 'JetBrains Mono', fontSize: '0.75rem', color: '#fbbf24', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
                         03. Experience
