@@ -138,7 +138,11 @@ export default function Skills() {
 
     return (
         <section id="skills" style={{ minHeight: '100vh', padding: '6rem 3rem' }} ref={ref}>
+<<<<<<< HEAD
             <div style={{ maxWidth: '100%', width: '100%' }}>
+=======
+            <div style={{ maxWidth: '1100px', width: '100%' }}>
+>>>>>>> 783797f (Update portfolio content and project details)
                 {/* Section label */}
                 <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '1rem' }}>
                     <span style={{ fontFamily: 'JetBrains Mono', fontSize: '0.75rem', color: '#fbbf24', letterSpacing: '0.12em', textTransform: 'uppercase' }}>

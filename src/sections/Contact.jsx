@@ -106,7 +106,11 @@ export default function Contact() {
 
     return (
         <section id="contact" style={{ minHeight: '100vh', padding: isMobile ? '4rem 1.5rem' : '6rem 3rem' }}>
+<<<<<<< HEAD
             <div style={{ maxWidth: '100%', width: '100%' }}>
+=======
+            <div style={{ maxWidth: '1100px', width: '100%' }}>
+>>>>>>> 783797f (Update portfolio content and project details)
                 <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '1rem' }}>
                     <span style={{ fontFamily: 'JetBrains Mono', fontSize: '0.75rem', color: '#fbbf24', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
                         06. Contact

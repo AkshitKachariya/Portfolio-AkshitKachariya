@@ -29,8 +29,13 @@ export default function Experience() {
     ]
 
     return (
+<<<<<<< HEAD
         <section id="experience" style={{ minHeight: '100vh', padding: isMobile ? '4rem 1.5rem' : '4rem 3rem', display: 'flex', alignItems: 'center' }}>
             <div style={{ maxWidth: '100%', width: '100%' }}>
+=======
+        <section id="experience" style={{ minHeight: 'auto', padding: isMobile ? '4rem 1.5rem' : '4rem 3rem' }}>
+            <div style={{ maxWidth: '1100px', width: '100%' }}>
+>>>>>>> 783797f (Update portfolio content and project details)
                 <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '1rem' }}>
                     <span style={{ fontFamily: 'JetBrains Mono', fontSize: '0.75rem', color: '#fbbf24', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
                         03. Experience
@@ -75,13 +80,13 @@ export default function Experience() {
 
                     <div className="glass-card card-hover" style={{ padding: isTiny ? '1.25rem' : '1.5rem' }}>
                         {/* Header */}
-                        <div style={{ 
-                            display: 'flex', 
+                        <div style={{
+                            display: 'flex',
                             flexDirection: isTiny ? 'column' : 'row',
-                            justifyContent: 'space-between', 
-                            alignItems: isTiny ? 'flex-start' : 'flex-start', 
-                            gap: '12px', 
-                            marginBottom: '1.25rem' 
+                            justifyContent: 'space-between',
+                            alignItems: isTiny ? 'flex-start' : 'flex-start',
+                            gap: '12px',
+                            marginBottom: '1.25rem'
                         }}>
                             <div>
                                 <h3 style={{
@@ -117,13 +122,14 @@ export default function Experience() {
                                 </div>
                             </div>
 
-                            <div style={{ 
-                                display: isTiny ? 'flex' : 'block',
-                                justifyContent: 'space-between',
-                                alignItems: 'center',
+                            <div style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: isTiny ? 'flex-start' : 'flex-end',
+                                gap: '8px',
                                 width: isTiny ? '100%' : 'auto',
-                                marginTop: isTiny ? '4px' : '0',
-                                textAlign: isTiny ? 'left' : 'right' 
+                                marginTop: isTiny ? '10px' : '0',
+                                textAlign: isTiny ? 'left' : 'right'
                             }}>
                                 <div style={{
                                     display: 'inline-flex',
@@ -133,22 +139,22 @@ export default function Experience() {
                                     border: '1px solid rgba(251,191,36,0.15)',
                                     borderRadius: '6px',
                                     padding: '4px 10px',
-                                    marginBottom: isTiny ? '0' : '4px',
+                                    whiteSpace: 'nowrap'
                                 }}>
-                                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" strokeWidth="2">
+                                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" strokeWidth="2" style={{ flexShrink: 0 }}>
                                         <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
                                         <line x1="16" y1="2" x2="16" y2="6" />
                                         <line x1="8" y1="2" x2="8" y2="6" />
                                         <line x1="3" y1="10" x2="21" y2="10" />
                                     </svg>
-                                    <span style={{ fontFamily: 'JetBrains Mono', fontSize: '0.7rem', color: '#fbbf24' }}>
-                                        4 Months
+                                    <span style={{ fontFamily: 'JetBrains Mono', fontSize: isTiny ? '0.65rem' : '0.7rem', color: '#fbbf24' }}>
+                                        Dec 2025 - Apr 2026 &middot; 5 mos
                                     </span>
                                 </div>
-                                <p style={{ 
-                                    fontFamily: 'Plus Jakarta Sans', 
-                                    fontSize: '0.75rem', 
-                                    color: 'var(--text-muted)', 
+                                <p style={{
+                                    fontFamily: 'Plus Jakarta Sans',
+                                    fontSize: '0.75rem',
+                                    color: 'var(--text-muted)',
                                     fontWeight: 500,
                                     margin: 0
                                 }}>
@@ -198,7 +204,7 @@ export default function Experience() {
                                     <span style={{ fontSize: '1rem' }}>✨</span>
                                     KEY HIGHLIGHTS
                                 </span>
-                                <svg 
+                                <svg
                                     width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
                                     style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.3s ease' }}
                                 >
@@ -258,4 +264,3 @@ export default function Experience() {
         </section>
     )
 }
-    
