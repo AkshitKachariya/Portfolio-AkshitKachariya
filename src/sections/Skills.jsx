@@ -6,12 +6,12 @@ const skillGroups = [
         color: '#fbbf24',
         icon: '⬡',
         skills: [
-            { name: 'HTML5', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg', level: 95 },
-            { name: 'CSS3', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg', level: 85 },
-            { name: 'Bootstrap', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg', level: 80 },
-            { name: 'Tailwind CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg', level: 85 },
-            { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg', level: 70 },
-            { name: 'ReactJS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg', level: 70 },
+            { name: 'HTML5', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg'},
+            { name: 'CSS3', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg', },
+            { name: 'Bootstrap', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg'},
+            { name: 'Tailwind CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg'},
+            { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg'},
+            { name: 'ReactJS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg'},
         ],
     },
     {
@@ -19,9 +19,9 @@ const skillGroups = [
         color: '#eab308',
         icon: '⬢',
         skills: [
-            { name: 'PHP', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg', level: 80 },
-            { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg', level: 70 },
-            { name: 'Express.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg', level: 70 },
+            { name: 'PHP', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg', },
+            { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg'},
+            { name: 'Express.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg'},
         ],
     },
     {
@@ -29,8 +29,8 @@ const skillGroups = [
         color: '#a78bfa',
         icon: '◈',
         skills: [
-            { name: 'MySQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg', level: 80 },
-            { name: 'MongoDB', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg', level: 80 },
+            { name: 'MySQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg'},
+            { name: 'MongoDB', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg'},
         ],
     },
     {
@@ -38,10 +38,10 @@ const skillGroups = [
         color: '#fb923c',
         icon: '◉',
         skills: [
-            { name: 'GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg', level: 65 },
-            { name: 'Postman', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg', level: 70 },
-            { name: 'Figma', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg', level: 65 },
-            { name: 'Canva', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg', level: 80 },
+            { name: 'GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg'},
+            { name: 'Postman', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg'},
+            { name: 'Figma', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg'},
+            { name: 'Canva', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg'},
         ],
     },
 ]
@@ -51,7 +51,7 @@ function SkillCard({ skill, color, visible }) {
         <div
             className="glass-card card-hover"
             style={{
-                padding: '1.1rem',
+                padding: '2rem 1.5rem',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
@@ -90,35 +90,6 @@ function SkillCard({ skill, color, visible }) {
             }}>
                 {skill.name}
             </span>
-            <div style={{ width: '100%' }}>
-                <div style={{
-                    height: '3px',
-                    background: 'rgba(255,255,255,0.06)',
-                    borderRadius: '2px',
-                    overflow: 'hidden',
-                }}>
-                    <div
-                        style={{
-                            height: '100%',
-                            background: `linear-gradient(90deg, ${color}, ${color}99)`,
-                            borderRadius: '2px',
-                            width: visible ? `${skill.level}%` : '0%',
-                            transition: 'width 1s cubic-bezier(0.4, 0, 0.2, 1)',
-                            transitionDelay: '0.3s',
-                            boxShadow: `0 0 8px ${color}66`,
-                        }}
-                    />
-                </div>
-                <span style={{
-                    fontFamily: 'JetBrains Mono',
-                    fontSize: '0.65rem',
-                    color: 'var(--text-muted)',
-                    float: 'right',
-                    marginTop: '2px',
-                }}>
-                    {skill.level}%
-                </span>
-            </div>
         </div>
     )
 }
